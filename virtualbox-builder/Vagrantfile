@@ -84,6 +84,5 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-  config.vm.provision "provision", type: "shell", path: "provision_wm.sh", privileged: true
-  config.vm.provision "provision", type: "shell", path: "provision_virtualbox.sh", privileged: true
+  config.vm.provision "provision", type: "shell", path: "provision.sh", privileged: true
 end

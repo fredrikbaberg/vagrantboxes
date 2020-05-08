@@ -2,7 +2,10 @@
 apt-get update
 # Install I3
 apt-get -y install \
-virtualbox
+virtualbox \
+vagrant
+xinit \
+i3
 # Cleanup, to reduce size.
 apt-get clean
 rm -rf /var/lib/apt/lists/*
