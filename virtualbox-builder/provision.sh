@@ -9,6 +9,8 @@ vagrant \
 xinit \
 i3 \
 linux-headers-$(uname -r)
+# Clone repo for building
+sudo -H -u vagrant bash -c 'git clone https://github.com/fredrikbaberg/vagrantboxes $HOME'
 # Cleanup, to reduce size.
 apt-get clean
 rm -rf /var/lib/apt/lists/*

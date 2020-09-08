@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "fredrikbaberg/ros-kinetic-base"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.network "public_network"
+  config.vm.network "public_network", bridge: "Default Switch"
   config.vm.hostname = "simulation"
 
   config.vm.provider "hyperv" do |hv|

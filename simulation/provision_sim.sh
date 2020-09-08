@@ -32,10 +32,13 @@ ros-kinetic-gazebo-plugins \
 ros-kinetic-gazebo-ros-pkgs \
 ros-kinetic-rosbridge-server \
 ros-kinetic-turtlebot-gazebo \
+ros-kinetic-joint-state-publisher-gui \
 ros-kinetic-rqt-graph
 # Install packages using rosdep
 cd $HOME/catkin_ws
 rosdep install --from-path src --ignore-src -ry
+# Build workspace
+catkin build
 # Cleanup
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
