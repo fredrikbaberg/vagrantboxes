@@ -2,17 +2,16 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-  config.vm.box = "bento/ubuntu-18.04"
+
+  config.vm.box = "lipro/ubuntu-14.04"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "public_network", bridge: "Default Switch"
 
   config.vm.provider "hyperv" do |hv|
-    hv.cpus = 2
+    hv.memory = "2048"
+    hv.cpus = "2"
     hv.enable_virtualization_extensions = true
-    hv.enable_checkpoints = false
-    # hv.maxmemory = 2048
-    hv.memory = 2048
+    hv.linked_clone = false
     hv.vm_integration_services = {
       guest_service_interface: true,
       heartbeat: true,
@@ -22,6 +21,10 @@ Vagrant.configure("2") do |config|
       vss: true
     }
   end
-  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = "2048"
+    vb.cpus = "2"
+  end
   config.vm.provision "provision", type: "shell", path: "provision.sh", privileged: true
 end

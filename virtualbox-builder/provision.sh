@@ -1,11 +1,11 @@
 # Install and setup Virtualbox
 apt-get update
-# Install I3
 apt-get -y install \
 virtualbox \
-vagrant
+vagrant \
 xinit \
-i3
+i3 \
+linux-headers-$(uname -r)
 # Cleanup, to reduce size.
 apt-get clean
 rm -rf /var/lib/apt/lists/*
