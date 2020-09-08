@@ -33,7 +33,8 @@ ros-kinetic-gazebo-ros-pkgs \
 ros-kinetic-rosbridge-server \
 ros-kinetic-turtlebot-gazebo \
 ros-kinetic-joint-state-publisher-gui \
-ros-kinetic-rqt-graph
+ros-kinetic-rqt-graph \
+ros-kinetic-desktop-full
 # Install packages using rosdep
 cd $HOME/catkin_ws
 rosdep install --from-path src --ignore-src -ry
