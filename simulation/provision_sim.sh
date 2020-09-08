@@ -12,9 +12,11 @@ git clone https://github.com/Kinovarobotics/kinova-ros.git --single-branch --bra
 mkdir -p ~/.gazebo && git clone https://github.com/osrf/gazebo_models --single-branch --branch master $HOME/.gazebo/models && rm -rf ~/.gazebo/models/.git
 git clone https://github.com/siemens/ros-sharp.git --single-branch --branch master /tmp/ros-sharp && cp -R /tmp/ros-sharp/ROS/ $HOME/catkin_ws/src/ros-sharp # && rm -rf /tmp/ros-sharp
 git clone https://github.com/fredrikbaberg/ros-docker --single-branch --branch sim /tmp/ros-docker && cp -R /tmp/ros-docker/sim/{sim,youbot_jaco_gazebo} $HOME/catkin_ws/src/ # && rm -rf /tmp/ros-docker
-# Add permissions to executable files from ros-sharp
+# Add permissions to executable files from ros-sharp, ignore moveit.
 chmod +x $HOME/catkin_ws/src/ros-sharp/gazebo_simulation_scene/scripts/joy_to_twist.py
 chmod +x $HOME/catkin_ws/src/ros-sharp/unity_simulation_scene/scripts/mouse_to_joy.py
+touch $HOME/catkin_ws/src/kinova-ros/kinova_moveit/kinova_arm_moveit_demo/CATKIN_IGNORE
+# sed -i 's+hardware_interface/++g' $HOME/catkin_ws/src/kinova-ros/kinova_description/urdf/kinova_common.xacro
 # Install additional packages
 sudo apt update
 sudo apt install -y linux-headers-$(uname -r) # xfce4 slim
