@@ -18,7 +18,19 @@ chmod +x $HOME/catkin_ws/src/ros-sharp/unity_simulation_scene/scripts/mouse_to_j
 # Install additional packages
 sudo apt update
 sudo apt install -y linux-headers-$(uname -r) # xfce4 slim
-sudo apt install -y ros-indigo-xacro ros-indigo-gazebo-ros-control ros-indigo-effort-controllers ros-indigo-joint-state-controller ros-indigo-joint-trajectory-controller ros-indigo-ros-control ros-indigo-ros-controllers ros-indigo-gazebo-plugins ros-indigo-gazebo-ros-pkgs ros-indigo-rosbridge-server ros-indigo-turtlebot-gazebo ros-indigo-rqt-graph
+sudo apt install -y \
+ros-indigo-xacro \
+ros-indigo-gazebo-ros-control \
+ros-indigo-effort-controllers \
+ros-indigo-joint-state-controller \
+ros-indigo-joint-trajectory-controller \
+ros-indigo-ros-control \
+ros-indigo-ros-controllers \
+ros-indigo-gazebo-plugins \
+ros-indigo-gazebo-ros-pkgs \
+ros-indigo-rosbridge-server \
+ros-indigo-turtlebot-gazebo \
+ros-indigo-rqt-graph
 # Install packages using rosdep
 cd $HOME/catkin_ws
 rosdep install --from-path src --ignore-src -ry
