@@ -6,10 +6,12 @@ Vagrant.configure("2") do |config|
   config.vm.box = "lipro/ubuntu-14.04"
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.network "public_network"
+  config.vm.hostname = "ros-indigo"
 
   config.vm.provider "hyperv" do |hv|
     hv.memory = "2048"
     hv.cpus = "2"
+    hv.vmname = "ros-indigo"
     hv.enable_virtualization_extensions = true
     hv.linked_clone = false
     hv.vm_integration_services = {
@@ -22,7 +24,7 @@ Vagrant.configure("2") do |config|
     }
   end
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = false
+    vb.gui = true
     vb.memory = "2048"
     vb.cpus = "2"
   end

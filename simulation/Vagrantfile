@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "hyperv" do |hv|
     hv.memory = "2048"
     hv.cpus = "2"
-    hv.vmname = "sim"
+    hv.vmname = "simulation"
     hv.enable_virtualization_extensions = true
     hv.linked_clone = true
     hv.vm_integration_services = {
