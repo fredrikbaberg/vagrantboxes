@@ -4,17 +4,19 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "bento/ubuntu-20.04"
-  config.vm.synced_folder ".", "/vagrant", disabled: false
-  config.vm.network "public_network", bridge: "Default Switch"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "public_network"
   config.vm.hostname = "virtualbox-builder"
 
   config.vm.provider "hyperv" do |hv|
-    hv.memory = "4096"
+    hv.memory = "2048"
     hv.cpus = "2"
     hv.vmname = "virtualbox-builder"
     hv.enable_virtualization_extensions = true
     hv.enable_enhanced_session_mode = true
-    hv.enable_checkpoints = false    
+    hv.enable_checkpoints = false
+    hv.enable_automatic_checkpoints = false
+    hv.linked_clone = true
     hv.vm_integration_services = {
       guest_service_interface: true,
       heartbeat: true,
@@ -25,5 +27,5 @@ Vagrant.configure("2") do |config|
     }
   end
   config.vm.provision "provision", type: "shell", path: "provision.sh", privileged: true
-  config.vm.provision "file", source: "build.sh", destination: "$HOME/build.sh"
+  # config.vm.provision "file", source: "build.sh", destination: "$HOME/build.sh"
 end
